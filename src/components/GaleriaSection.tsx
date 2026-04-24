@@ -3,34 +3,34 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 
 const galleryItems = [
   {
-    src: "/images/hero-pool.jpg",
-    alt: "Piscina residencial com jardim",
-    label: "Manutenção & Limpeza",
+    src: "/images/resort-pool.jpg",
+    alt: "Piscina estilo resort com deck",
+    label: "Projetos de Luxo",
   },
   {
-    src: "/images/pool-gallery-1.jpg",
-    alt: "Piscina de luxo com vista para o mar",
-    label: "Construção Premium",
+    src: "/images/apartment-pool.jpg",
+    alt: "Piscina de grande porte em condomínio",
+    label: "Manutenção de Condomínios",
   },
   {
-    src: "/images/pool-gallery-2.jpg",
-    alt: "Piscina retangular com jardim tropical",
-    label: "Remodelação Completa",
+    src: "/images/maintenance-2.jpg",
+    alt: "Limpeza profissional de fundo de piscina",
+    label: "Manutenção Especializada",
   },
   {
-    src: "/images/pool-construction.jpg",
-    alt: "Construção de piscina",
-    label: "Construção & Instalação",
+    src: "/images/pool-with-cover.jpg",
+    alt: "Piscina com cobertura de proteção",
+    label: "Equipamentos & Segurança",
   },
   {
-    src: "/images/pool-gallery-3.jpg",
-    alt: "Manutenção profissional de piscina",
-    label: "Serviço Profissional",
+    src: "/images/maintenance-1.jpg",
+    alt: "Manutenção em piscina decorativa",
+    label: "Tratamento de Águas",
   },
   {
-    src: "/images/pool-gallery-1.jpg",
-    alt: "Piscina infinity com panorama",
-    label: "Piscinas de Luxo",
+    src: "/images/indoor-jacuzzi.jpg",
+    alt: "Jacuzzi interior com mosaico",
+    label: "Spas & Interiores",
   },
 ];
 

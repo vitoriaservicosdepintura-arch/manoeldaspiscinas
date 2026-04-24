@@ -23,10 +23,10 @@ export default function HeroSection() {
     bubblesRef.current = Array.from({ length: count }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
-      size: 3 + Math.random() * 14,
+      size: 4 + Math.random() * 18, // Slightly larger range
       speed: 0.3 + Math.random() * 0.5,
       delay: Math.random() * 5,
-      opacity: 0.1 + Math.random() * 0.25,
+      opacity: 0.2 + Math.random() * 0.3, // Increased base opacity
     }));
   }, []);
 
@@ -38,8 +38,11 @@ export default function HeroSection() {
 
     let t = 0;
     const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
     };
     resize();
     window.addEventListener("resize", resize);
@@ -70,14 +73,28 @@ export default function HeroSection() {
         const elapsed = (t * 0.3 + b.delay * 60) % (height + 50);
         const yPos = height - elapsed;
         const xPos = (b.x / 100) * width + Math.sin(t * 0.01 + b.id) * 15;
+
+        // Outer stroke - sharper white
         ctx.beginPath();
         ctx.arc(xPos, yPos, b.size, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(111,175,207,${b.opacity})`;
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = `rgba(255, 255, 255, ${b.opacity})`;
+        ctx.lineWidth = 1.2;
         ctx.stroke();
+
+        // Highlight shine - more "nítido"
         ctx.beginPath();
-        ctx.arc(xPos - b.size * 0.3, yPos - b.size * 0.3, b.size * 0.25, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${b.opacity * 0.5})`;
+        ctx.arc(xPos - b.size * 0.35, yPos - b.size * 0.35, b.size * 0.22, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${b.opacity * 1.5})`;
+        ctx.fill();
+
+        // Subtle core soft glow
+        ctx.beginPath();
+        ctx.arc(xPos, yPos, b.size, 0, Math.PI * 2);
+        const gradient = ctx.createRadialGradient(xPos, yPos, 0, xPos, yPos, b.size);
+        gradient.addColorStop(0, "rgba(111, 175, 207, 0)");
+        gradient.addColorStop(0.8, "rgba(111, 175, 207, 0)");
+        gradient.addColorStop(1, `rgba(111, 175, 207, ${b.opacity * 0.2})`);
+        ctx.fillStyle = gradient;
         ctx.fill();
       });
 

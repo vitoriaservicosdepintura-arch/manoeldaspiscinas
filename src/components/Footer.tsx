@@ -76,12 +76,13 @@ export default function Footer() {
           <div>
             {/* Logo */}
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.25rem" }}>
-              <svg width="48" height="48" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="40" y="40" width="120" height="120" rx="18" fill="rgba(111,175,207,0.4)" transform="rotate(45 100 100)" />
-                <rect x="52" y="52" width="96" height="96" rx="14" fill="#1E5F8A" transform="rotate(45 100 100)" />
-                <rect x="64" y="64" width="72" height="72" rx="10" fill="#0B2A4A" transform="rotate(45 100 100)" />
-                <rect x="80" y="80" width="40" height="40" rx="6" fill="#FFFFFF" transform="rotate(45 100 100)" />
-              </svg>
+              <img
+                src="/images/logo.png"
+                width="60"
+                height="60"
+                alt="Logo Manoel das Piscinas"
+                style={{ objectFit: "contain" }}
+              />
               <div>
                 <div style={{
                   fontFamily: "'Poppins', sans-serif",

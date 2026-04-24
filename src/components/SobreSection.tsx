@@ -41,8 +41,8 @@ export default function SobreSection() {
               aspectRatio: "4/3",
             }}>
               <img
-                src="/images/hero-pool.jpg"
-                alt="Piscina Manoel das Piscinas"
+                src="/images/team-fleet.jpg"
+                alt="Equipa Manoel das Piscinas"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
